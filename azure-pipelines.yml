@@ -4,21 +4,21 @@ trigger:
 variables:
   buildConfiguration: 'Release'
 
-  stages:
-  - stage: 'Build'
-    displayName: 'Build the web application'
-    jobs:
-      - job: 'Build'
-    pool:
-      vmImage: 'ubuntu-16.04'
-      demands:
-        - npm
+stages:
+- stage: 'Build'
+  displayName: 'Build the web application'
+  jobs:
+    - job: 'Build'
+  pool:
+    vmImage: 'ubuntu-16.04'
+    demands:
+      - npm
 
-    variables:
-      wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-      dotnetSdkVersion: '3.1.100'
+  variables:
+    wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+    dotnetSdkVersion: '3.1.100'
 
-    steps:
+  steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
     inputs:
